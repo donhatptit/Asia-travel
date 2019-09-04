@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simply Navigation - Stand-alone version</title>
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+<!--    <link rel="stylesheet" href="public/css/owl.carousel.min.css">-->
+<!--    <link rel="stylesheet" href="public/css/owl.theme.default.css">-->
+    <link rel="stylesheet" href="public/css/slick-theme.css">
+    <link rel="stylesheet" href="public/css/slick.css">
+    <style>
+        .container {
+            background: #f9f9f9;
+        }
+
+        .flex-column {
+            max-width: 260px;
+        }
+
+        img {
+            margin: 5px;
+        }
+
+        .scale {
+            transform: scaleY(1.05);
+            padding-top: 5px;
+        }
+    </style>
+
+<!--    <style>-->
+
+
+
+
+
+<!--        .nav {-->
+<!--            max-width: 80rem;-->
+<!--            width: 100%;-->
+<!--            margin: 0 auto;-->
+<!--            padding: 0;-->
+<!--            display: flex;-->
+<!--            justify-content: center; }-->
+
+<!--        .nav__list {-->
+<!--            background-color: transparent;-->
+<!--            list-style: none;-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--            display: block;-->
+<!--            position: fixed;-->
+<!--            top: -0.25rem;-->
+<!--            bottom: 0;-->
+<!--            left: 0;-->
+<!--            width: 0;-->
+<!--            min-height: 102vh;-->
+<!--            overflow: hidden;-->
+<!--            -webkit-overflow-scrolling: touch;-->
+<!--            z-index: 99;-->
+<!--            transition: all 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);-->
+<!--            backface-visibility: hidden;-->
+<!--            transform-style: preserve-3d;-->
+<!--            -webkit-backface-visibility: hidden;-->
+<!--            -webkit-transform-style: preserve-3d; }-->
+<!--        .nav__list li {-->
+<!--            display: flex;-->
+<!--            padding: 0;-->
+<!--            border-bottom: 1px solid rgba(202, 207, 204, 0.5); }-->
+<!--        .nav__list li:first-child {-->
+<!--            margin-top: 1rem; }-->
+<!--        .nav__list li:last-child {-->
+<!--            border-bottom: 0; }-->
+<!--        .nav__list .nav__item {-->
+<!--            border-color: transparent;-->
+<!--            padding: 0.75rem 1rem 0.5rem 1rem;-->
+<!--            flex-basis: 100%;-->
+<!--            display: block;-->
+<!--            background: transparent;-->
+<!--            font-size: 1.5rem;-->
+<!--            padding-left: 1.5rem;-->
+<!--            color: rgba(244, 248, 251, 0.75);-->
+<!--            transition: all 0.3s ease-in-out; }-->
+<!--        .nav__list .nav__item:hover, .nav__list .nav__item.active {-->
+<!--            color: #F0DB4F; }-->
+
+<!--        .nav__logo {-->
+<!--            z-index: 90;-->
+<!--            border-bottom: 0;-->
+<!--            padding: 0.5rem;-->
+<!--            backface-visibility: hidden;-->
+<!--            transform-style: preserve-3d;-->
+<!--            -webkit-backface-visibility: hidden;-->
+<!--            -webkit-transform-style: preserve-3d;-->
+<!--            position: absolute;-->
+<!--            right: 1rem; }-->
+
+
+<!--        .page__overlay {-->
+<!--            width: 40%;-->
+<!--            height: 100%;-->
+<!--            background: rgba(67, 67, 67, 0.65);-->
+<!--            position: absolute;-->
+<!--            right: 0;-->
+<!--            top: 0;-->
+<!--            cursor: pointer; }-->
+
+<!--        .nav__list-left {-->
+<!--            background: #1d1d1d;-->
+<!--            width: 60%;-->
+<!--            height: 100%;-->
+<!--            position: relative; }-->
+
+<!--        .nav__list-right {-->
+<!--            width: 40%; }-->
+
+<!--        #sideNav.open {-->
+<!--            width: 100%; }-->
+
+<!--        .toggleNav, .toggleNav:focus, .toggleNav:active {-->
+<!--            display: block;-->
+<!--            z-index: 91;-->
+<!--            color: white;-->
+<!--            padding: 1rem;-->
+<!--            font-size: 1.5rem;-->
+<!--            cursor: pointer;-->
+<!--            right: 0.5rem;-->
+<!--            position: absolute;-->
+<!--            transition: all 0.3s;-->
+<!--            -webkit-transition: all 0.3s; }-->
+
+<!--        .svg-hamburger, .svg-close {-->
+<!--            width: 1.25rem;-->
+<!--            height: 1.25rem; }-->
+
+<!--        .closeBtn, .closeBtn:visited, .closeBtn:active, .closeBtn:focus {-->
+<!--            cursor: pointer;-->
+<!--            font-size: 1.75rem;-->
+<!--            font-weight: 800;-->
+<!--            display: flex;-->
+<!--            background: transparent;-->
+<!--            border-bottom: 0;-->
+<!--            padding: 1.25rem 1rem 1rem 1.5rem;-->
+<!--            margin: 0;-->
+<!--            text-align: right;-->
+<!--            color: #434343;-->
+<!--            transition: all 0.3s;-->
+<!--            -webkit-transition: all 0.3s; }-->
+<!--        .closeBtn span, .closeBtn:visited span, .closeBtn:active span, .closeBtn:focus span {-->
+<!--            font-size: 1rem;-->
+<!--            padding-left: 0.25rem; }-->
+<!--        .closeBtn span:hover, .closeBtn:visited span:hover, .closeBtn:active span:hover, .closeBtn:focus span:hover {-->
+<!--            color: rgba(244, 248, 251, 0.75); }-->
+<!--        .closeBtn .svg-close, .closeBtn:visited .svg-close, .closeBtn:active .svg-close, .closeBtn:focus .svg-close {-->
+<!--            margin-top: 0.75rem; }-->
+<!--        .closeBtn .svg-close-path:hover, .closeBtn:visited .svg-close-path:hover, .closeBtn:active .svg-close-path:hover, .closeBtn:focus .svg-close-path:hover {-->
+<!--            fill: #F0DB4F; }-->
+<!--        .closeBtn:hover, .closeBtn:visited:hover, .closeBtn:active:hover, .closeBtn:focus:hover {-->
+<!--            color: rgba(244, 248, 251, 0.75); }-->
+
+<!--        @media all and (min-width: 800px) {-->
+<!--            .toggleNav {-->
+<!--                display: none; }-->
+
+<!--            .closeBtn {-->
+<!--                display: none; }-->
+
+<!--            .nav__logo {-->
+<!--                margin-left: 1rem;-->
+<!--                position: relative;-->
+<!--                right: unset; }-->
+
+<!--            .nav__list {-->
+<!--                margin-top: 0.5rem;-->
+<!--                position: relative;-->
+<!--                width: 100%;-->
+<!--                min-height: initial;-->
+<!--                background: transparent;-->
+<!--                z-index: 1;-->
+<!--                overflow: hidden; }-->
+<!--            .nav__list li {-->
+<!--                padding: 1.25rem 0;-->
+<!--                margin-left: 1.5rem;-->
+<!--                border-bottom-color: transparent;-->
+<!--                justify-content: flex-start; }-->
+<!--            .nav__list .nav__item {-->
+<!--                border-bottom: 2px solid transparent;-->
+<!--                display: block;-->
+<!--                flex-basis: unset;-->
+<!--                background: transparent;-->
+<!--                padding: 0;-->
+<!--                font-size: 1rem;-->
+<!--                outline: 0;-->
+<!--                transition: all 0.2s ease-in-out; }-->
+
+<!--            .nav__list-left, .nav__list-right {-->
+<!--                width: unset;-->
+<!--                height: unset;-->
+<!--                overflow: hidden; }-->
+
+<!--            .nav__list-left {-->
+<!--                border-top: 0;-->
+<!--                background: transparent;-->
+<!--                display: flex;-->
+<!--                align-items: center;-->
+<!--            justify-content: flex-end;-->
+<!--            }-->
+
+<!--            .nav__list-right {-->
+<!--                display: none;-->
+<!--                z-index: -1; } }-->
+
+<!--    </style>-->
+
+</head>
+<style>
+    *{
+        margin: 0;
+        padding:0;
+    }
+  .wrapper{
+      display:grid;
+      background-color: #fff;
+      /*width: 900px;*/
+      max-width: 100%;
+      /*max-height: 80vh;*/
+      margin:40px auto;
+      grid-gap: 5px;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: minmax(100px, auto);
+  }
+  /*.box2{*/
+  /*    display:grid;*/
+  /*    background-color: #fff;*/
+  /*    !*width: 900px;*!*/
+  /*    max-width: 100%;*/
+  /*    height: 80vh;*/
+  /*    margin:40px auto;*/
+  /*    grid-gap: 5px;*/
+  /*    grid-template-columns: repeat(3, 1fr);*/
+  /*    grid-template-rows: repeat(3,1fr);*/
+  /*}*/
+    .box{
+        /*background-color: red;*/
+    }
+   .one{
+       grid-column:span 2;
+   }
+    .six{
+        grid-column: span 2;
+    }
+
+   /*.sevent{*/
+   /*    grid-column: span 3/2;*/
+   /*}*/
+   /* .eight{*/
+   /*     grid-column: span 3/2;*/
+   /* }*/
+   /* .night{*/
+   /*     grid-column: span 3/2;*/
+   /* }*/
+
+</style>
+<body>
+
+<div class="container-fluid">
+     <div class="wrapper">
+         <div class="box one">
+             <img src="public/images/destination/img_Vietnam.png" alt="" class="img-fluid">
+         </div>
+         <div class="box two">
+             <img src="public/images/destination/img_Laos.png" alt="" class="img-fluid">
+         </div>
+         <div class="box three">
+             <img src="public/images/destination/img_Cambodia.png" alt="" class="img-fluid">
+         </div>
+         <div class="box four">
+             <img src="public/images/destination/img_Myanmar.png" alt="" class="img-fluid">
+         </div>
+         <div class="box five">
+             <img src="public/images/destination/img_Philippines.png" alt="" class="img-fluid">
+         </div>
+         <div class="box six">
+             <img src="public/images/destination/img_Thailand.png" alt="" class="img-fluid">
+         </div>
+
+     </div>
+
+
+</div>
+
+
+
+<!--<nav class="nav" role="navigation">-->
+<!--      <span class="toggleNav">-->
+<!--        <svg class="svg-hamburger" viewBox="0 0 1536 1280" xmlns="http://www.w3.org/2000/svg">-->
+<!--          <path class="svg-hamburger-path" d="M1536 1088v128q0 26-19 45t-45 19H64q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19H64q-26 0-45-19T0 704V576q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19H64q-26 0-45-19T0 192V64q0-26 19-45T64 0h1408q26 0 45 19t19 45z" fill="rgba(226, 241, 236, 20.85)" />-->
+<!--        </svg>-->
+<!--      </span>-->
+<!--    <a class="nav__logo" href="#">-->
+<!--    </a>-->
+<!--    <ul class="nav__list" id="sideNav">-->
+<!--        <div class="nav__list-left">-->
+<!--            <a class="closeBtn">-->
+<!--                <svg class="svg-close" viewBox="0 0 1188 1188" xmlns="http://www.w3.org/2000/svg">-->
+<!--                    <path class="svg-close-path" d="M1188 956q0 40-28 68l-136 136q-28 28-68 28t-68-28L594 866l-294 294q-28 28-68 28t-68-28L28 1024Q0 996 0 956t28-68l294-294L28 300Q0 272 0 232t28-68L164 28q28-28 68-28t68 28l294 294L888 28q28-28 68-28t68 28l136 136q28 28 28 68t-28 68L866 594l294 294q28 28 28 68z" fill="rgba(226, 241, 236, 0.85)" />-->
+<!--                </svg>-->
+<!--            </a>-->
+<!--            <li>-->
+<!--                <a class="nav__item" href="#">Home</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a class="nav__item" href="#">Link</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a class="nav__item" href="#">Second Link</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a class="nav__item" href="#">Third Link</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a class="nav__item" href="#last-section">Last Section</a>-->
+<!--            </li>-->
+<!--        </div>-->
+<!--        <div class="nav__list-right">-->
+<!--            <div class="page__overlay"></div>-->
+<!--        </div>-->
+<!--    </ul>-->
+<!--</nav>-->
+<script src="public/js/jquery-3.4.1.min.js"></script>
+<!--<script src="public/js/owl.carousel.js"></script>-->
+<script src="public/js/slick.js"></script>
+<script>
+    $('.slider').slick({
+        centerMode: true,
+        centerPadding: '140px',
+        slidesToShow: 3,
+        responsive: [
+            {
+                breakpoint: 769,
+                settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '60px',
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 1
+                }
+            }
+        ]
+    });
+</script>
+<script>
+    // $('.owl-carousel').owlCarousel({
+    //     loop:true,
+    //     margin:10,
+    //     nav:true,
+    //     responsive:{
+    //         0:{
+    //             items:1
+    //         },
+    //         600:{
+    //             items:3
+    //         },
+    //         1000:{
+    //             items:5
+    //         }
+    //     }
+    // })
+</script>
+
+<!--<script>-->
+
+<!--    // This anonymous function can be inserted anywhere-->
+<!--    // (eg. within a <script> tag or anywhere in an existing .js file or its own file)-->
+<!--    (navDuty => {-->
+<!--        const sideNav = document.getElementById('sideNav');-->
+<!--        const closeNavBtn = document.querySelector('.closeBtn');-->
+<!--        const toggleNavBtn = document.querySelector('.toggleNav');-->
+<!--        const pageOverlay = document.querySelector('.page__overlay');-->
+
+<!--        // Nav listeners-->
+<!--        closeNavBtn.addEventListener('click', toggleNav);-->
+<!--        toggleNavBtn.addEventListener('click', toggleNav);-->
+<!--        pageOverlay.addEventListener('click', toggleNav);-->
+<!--        // Nav funtion-->
+<!--        function toggleNav() {-->
+<!--            sideNav.classList.toggle('open');-->
+<!--        };-->
+
+<!--        // (on mobile) close nav menu when link is clicked-->
+<!--        // this is useful on mobile when clicking an anchor tag on the current page (eg. index.html#last-section)-->
+<!--        let navItems = document.querySelectorAll(".nav__item");-->
+<!--        for (var i = 0; i < navItems.length; i++) {-->
+<!--            navItems[i].addEventListener('click', function (event) {-->
+<!--                toggleNav();-->
+<!--            });-->
+<!--        }-->
+<!--    })();-->
+
+
+<!--    //non related-->
+<!--    (stickyNav => {-->
+<!--        const button = document.querySelector('button');-->
+<!--        const onOffHTML = document.querySelector('.sticky-on-off');-->
+<!--        const on = '<strong>On</strong>';-->
+<!--        const off = '<strong>Off</strong>';-->
+<!--        const navWrapper = document.querySelector('.nav-wrapper');-->
+
+<!--        button.addEventListener('click', toggleStickyNav => {-->
+<!--            navWrapper.classList.toggle('sticky-nav');-->
+<!--            (navWrapper.classList.contains('sticky-nav') ? onOffHTML.innerHTML = on : onOffHTML.innerHTML = off);-->
+<!--        });-->
+
+<!--    })();-->
+
+<!--</script>-->
+</body>
+</html>
